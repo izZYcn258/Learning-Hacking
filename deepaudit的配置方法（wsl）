@@ -1,0 +1,15 @@
+拉取南大镜像源：# 国内加速版 - 使用南京大学 GHCR 镜像站
+curl -fsSL https://raw.githubusercontent.com/lintsinghua/DeepAudit/v3.0.0/docker-compose.prod.cn.yml | docker compose -f - up -d
+可先创建一文件夹并进入，mkdir DeepAudit-load ;cd ~/DeepAudit-load
+如果出现问题，可使用sudo vim /etc/docker/daemon.json 
+  先按“i”开始编辑模式，更改内容：
+{
+  "registry-mirrors": [
+    "https://docker.1ms.run",
+    "https://dockerproxy.com",
+    "https://hub.rat.dev"
+  ]
+}
+最后ESC + “：wq”保存
+再次拉取
+如果成功，可打开http://localhost:3000 开始体验
